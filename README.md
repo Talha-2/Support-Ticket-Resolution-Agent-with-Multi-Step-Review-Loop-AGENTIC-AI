@@ -9,7 +9,8 @@ The **Customer Support Ticket System (CSTS)** is an automated customer support s
 Powered by the **LLaMA3-8B** model via **Groq** and **SentenceTransformers** for embedding generation.
 
 ---
-## Demo Video Drive Link : **https://drive.google.com/file/d/1xnnTyuUsIyb9Lj2RPe0dOlkYBsWNsNJo/view?usp=sharing**
+### Demo Video Drive Link :
+**https://drive.google.com/file/d/1xnnTyuUsIyb9Lj2RPe0dOlkYBsWNsNJo/view?usp=sharing**
 ## 🧭 Overview
 
 The CSTS processes tickets via a multi-step workflow:
