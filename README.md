@@ -1,10 +1,10 @@
-Here's a GitHub-style `README.md` version of your Support Ticket System (STS) documentation:
+
 
 ---
 
-# 🛠️ Support Ticket System (STS)
+# 🛠️Customer Support Ticket System (STS)
 
-The **Support Ticket System (STS)** is an automated customer support solution built using **LangGraph**, **LangChain**, and **FAISS**. It classifies support tickets, retrieves contextual knowledge, drafts professional responses, performs quality reviews, and escalates unresolved cases — all with minimal human intervention.
+The **Customer Support Ticket System (CSTS)** is an automated customer support solution built using **LangGraph**, **LangChain**, and **FAISS**. It classifies support tickets, retrieves contextual knowledge, drafts professional responses, performs quality reviews, and escalates unresolved cases — all with minimal human intervention.
 
 Powered by the **LLaMA3-8B** model via **Groq** and **SentenceTransformers** for embedding generation.
 
@@ -12,7 +12,7 @@ Powered by the **LLaMA3-8B** model via **Groq** and **SentenceTransformers** for
 
 ## 🧭 Overview
 
-The STS processes tickets via a multi-step workflow:
+The CSTS processes tickets via a multi-step workflow:
 
 1. **Input**: Accepts a support ticket with `subject` and `description`.
 2. **Classify**: Categorizes ticket as **Billing**, **Technical**, **Security**, or **General**.
@@ -64,15 +64,15 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ### 3. Install Dependencies
 
 ```bash
-uv pip install \
-  langgraph \
-  langchain \
-  langchain-community \
-  langchain-groq \
-  sentence-transformers \
-  faiss-cpu \
-  python-dotenv \
-  jupyter \
+  uv pip install 
+  langgraph 
+  langchain 
+  langchain-community 
+  langchain-groq 
+  sentence-transformers 
+  faiss-cpu 
+  python-dotenv 
+  jupyter 
   ipython
 ```
 
@@ -250,7 +250,7 @@ ipython
 
 ---
 
-## 📂 Project Structure (Example)
+## 📂 Project Structure 
 
 ```
 📁 sts-project/
@@ -264,16 +264,3 @@ ipython
 
 ---
 
-## 🙌 Contribution
-
-Contributions are welcome! Open issues, suggest improvements, or create a pull request.
-
----
-
-## 📝 License
-
-MIT License (or specify if different)
-
----
-
-Let me know if you’d like me to generate the actual `README.md` file or a template version of `sts.py` or `STS.ipynb`.
