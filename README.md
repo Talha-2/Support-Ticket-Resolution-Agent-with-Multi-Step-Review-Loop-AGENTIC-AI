@@ -3,7 +3,7 @@
 The **Customer Support Ticket System (CSTS)** is an advanced, automated customer support solution designed to streamline ticket management. Built with **LangGraph**, **LangChain**, and **FAISS**, this system classifies support tickets, retrieves relevant contextual knowledge, drafts professional responses, conducts quality reviews, and escalates unresolved cases with minimal human intervention. It leverages the **LLaMA3-8B** model via **Groq** for high-quality natural language processing and **SentenceTransformers** for efficient embedding generation.
 
 A demo video is available at:  
-**https://drive.google.com/file/d/1xnnTyuUsIyb9Lj2RPe0dOlkYBsWNsNJo/view?usp=sharing**
+**https://drive.google.com/file/d/1pttzWw4gBj0WLTqhZSPphDH3STTimvqa/view?usp=sharing**
 
 ## 🧭 Overview
 
@@ -61,7 +61,7 @@ LANGSMITH_API_KEY=your_langsmith_api_key
 ### 6. Run the Main File
 Execute the main script to start the system:
 ```bash
-python src\main.py
+python -m src.main
 ```
 
 ### 7. Set Up LangGraph CLI (Optional)
