@@ -146,9 +146,6 @@ langgraph
 ## 📂 Project Structure
 ```
 📁 ZIKRA_INFO_TECH
-├── demo_video
-│   ├── Demo_Video_CSTS.mp4
-│   └── Demo_Video_Drive_Link.txt
 ├── src
 │   ├── core
 │       ├── llm.py
