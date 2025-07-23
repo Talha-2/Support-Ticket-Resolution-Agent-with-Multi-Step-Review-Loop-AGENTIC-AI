@@ -157,8 +157,8 @@ langgraph
 │       └── ticket_state.py
 |   ├── tests
 │       ├── test_classify.py
-│       └── CSTS.ipynb
-│       └── main.py
+│   ├── CSTS.ipynb
+│   ├── main.py
 ├── .env
 ├── Assessment Task 
 ├── escalation_log.csv
