@@ -22,4 +22,5 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
-packages = ["core", "state", "demo_video"]
+package-dir = {"" = "src"}
+packages = ["core", "StateGraph"]
