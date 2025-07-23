@@ -1,0 +1,23 @@
+{
+  "name": "support-ticket-agent",
+  "description": "LangGraph support ticket classification and response system",
+  "version": "0.1.0",
+  "dependencies": [
+    "langchain==0.2.0",
+    "langgraph==0.1.0"
+  ],
+  "dockerfile_lines": [],
+  "graphs": {
+    "support-ticket-agent": "main:graph"
+  },
+  "inputs": {
+    "ticket": {
+      "type": "object",
+      "properties": {
+        "subject": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "required": ["subject", "description"]
+    }
+  }
+}

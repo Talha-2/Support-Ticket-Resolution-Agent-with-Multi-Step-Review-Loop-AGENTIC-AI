@@ -1,4 +1,3 @@
-langgraph
 langchain
 langchain_community
 langchain_groq
@@ -6,3 +5,7 @@ faiss-cpu
 python-dotenv
 ipykernel
 sentence_transformers
+langgraph-cli
+langgraph-cli[inmem]
+langchain-huggingface
+langgraph
