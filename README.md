@@ -160,8 +160,7 @@ langgraph
 │       └── CSTS.ipynb
 │       └── main.py
 ├── .env
-├── Assessment Task — Support Ticket Re...
-├── Demo_Video_Drive_Link.txt
+├── Assessment Task 
 ├── escalation_log.csv
 ├── flow_chart.png
 ├── langgraph.json
