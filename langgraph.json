@@ -8,7 +8,7 @@
   ],
   "dockerfile_lines": [],
   "graphs": {
-    "support-ticket-agent": "main:graph"
+    "support-ticket-agent": "src.main:graph"
   },
   "inputs": {
     "ticket": {
