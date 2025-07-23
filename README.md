@@ -1,267 +1,170 @@
+# 🛠️ Customer Support Ticket System (CSTS)
 
+The **Customer Support Ticket System (CSTS)** is an advanced, automated customer support solution designed to streamline ticket management. Built with **LangGraph**, **LangChain**, and **FAISS**, this system classifies support tickets, retrieves relevant contextual knowledge, drafts professional responses, conducts quality reviews, and escalates unresolved cases with minimal human intervention. It leverages the **LLaMA3-8B** model via **Groq** for high-quality natural language processing and **SentenceTransformers** for efficient embedding generation.
 
----
-
-# 🛠️Customer Support Ticket System (STS)
-
-The **Customer Support Ticket System (CSTS)** is an automated customer support solution built using **LangGraph**, **LangChain**, and **FAISS**. It classifies support tickets, retrieves contextual knowledge, drafts professional responses, performs quality reviews, and escalates unresolved cases — all with minimal human intervention.
-
-Powered by the **LLaMA3-8B** model via **Groq** and **SentenceTransformers** for embedding generation.
-
----
-### Demo Video Drive Link :
+A demo video is available at:  
 **https://drive.google.com/file/d/1xnnTyuUsIyb9Lj2RPe0dOlkYBsWNsNJo/view?usp=sharing**
+
 ## 🧭 Overview
 
-The CSTS processes tickets via a multi-step workflow:
-
+The CSTS follows a structured multi-step workflow:
 1. **Input**: Accepts a support ticket with `subject` and `description`.
-2. **Classify**: Categorizes ticket as **Billing**, **Technical**, **Security**, or **General**.
+2. **Classify**: Categorizes tickets into **Billing**, **Technical**, **Security**, or **General**.
 3. **Retrieve**: Uses FAISS to fetch relevant context from a local knowledge base.
 4. **Draft**: Generates a professional response using the LLM.
-5. **Review**: Evaluates response clarity, professionalism, and relevance.
-6. **Retry or Escalate**: Retries up to 2 times or escalates to CSV for human review.
-
----
+5. **Review**: Evaluates the response for clarity, professionalism, and relevance.
+6. **Retry or Escalate**: Retries up to 2 times or escalates to a CSV log for human review.
 
 ## ⚙️ Tech Stack
-
-* **LangGraph** – Stateful workflow orchestration
-* **LangChain** – LLM interfaces and tools
-* **FAISS** – Fast similarity-based context retrieval
-* **SentenceTransformers** – Embeddings (via `all-MiniLM-L6-v2`)
-* **Groq** – High-speed inference with LLaMA3-8B
-* **Python 3.10+**
-
----
+- **LangGraph** – Stateful workflow orchestration
+- **LangChain** – LLM interfaces and tools
+- **FAISS** – Fast similarity-based context retrieval
+- **SentenceTransformers** – Embeddings (via `all-MiniLM-L6-v2`)
+- **Groq** – High-speed inference with LLaMA3-8B
+- **Python 3.10+**
 
 ## 🚀 Setup Instructions
 
-### ✅ Prerequisites
+Follow these sequential steps to set up and run the CSTS:
 
-* Python 3.10+
-* [`uv`](https://github.com/astral-sh/uv) (fast Python package manager)
-* Groq API Key
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Talha-2/Support-Ticket-Resolution-Agent-with-Multi-Step-Review-Loop-AGENTIC-AI.git
+```
 
----
-
-### 1. Install `uv`
-
+### 2. Install `uv` Package Manager
+Use `pip` to install the `uv` package manager, a fast alternative for managing Python dependencies:
 ```bash
 pip install uv
 ```
 
----
-
-### 2. Create Virtual Environment
-
+### 3. Create a Virtual Environment
+Create a virtual environment using `uv` to isolate project dependencies:
 ```bash
 uv venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
----
-
-### 3. Install Dependencies
-
+### 4. Install Dependencies
+Install all required dependencies listed in `requirements.txt` within the virtual environment:
 ```bash
-  uv pip install 
-  langgraph 
-  langchain 
-  langchain-community 
-  langchain-groq 
-  sentence-transformers 
-  faiss-cpu 
-  python-dotenv 
-  jupyter 
-  ipython
+uv add -r requirements.txt
 ```
 
-Optional (for faster HuggingFace downloads):
-
-```bash
-uv pip install hf_xet
-```
-
----
-
-### 4. Set Up Environment Variables
-
-Create a `.env` file in the root directory:
-
+### 5. Set Up Environment Variables
+Create a `.env` file in the root directory and add your Groq and Langsmith API key:
 ```
 GROQ_API_KEY=your_groq_api_key
+LANGSMITH_API_KEY=your_langsmith_api_key
 ```
 
-Replace `your_groq_api_key` with your actual key.
-
----
-
-### 5. Run Jupyter Notebook
-
+### 6. Run the Main File
+Execute the main script to start the system:
 ```bash
-uv run jupyter notebook
+python src\main.py
 ```
 
-Open `STS.ipynb` and run all cells.
+### 7. Set Up LangGraph CLI (Optional)
+To run the agent using the LangGraph CLI, follow these additional steps:
 
----
+#### a. Configure Local Server
+Refer to the LangGraph local server setup guide:  
+**https://langchain-ai.github.io/langgraph/tutorials/langgraph-platform/local-server/**  
+Follow the instructions to set up the local server environment.
 
-## ▶️ Running the Agent
+#### b. Start the LangGraph Development Server
+Launch the server using the LangGraph CLI:
+```bash
+langgraph dev
+```
 
-### ✅ In Jupyter Notebook
-
-Example:
-
-```python
-test_ticket = {
-    "subject": "Refund not received",
-    "description": "I canceled my subscription last week but haven’t received a refund yet."
+#### c. Invoke the Agent
+Provide a JSON input to invoke the agent. Example input:
+```json
+{
+  "subject": "Refund not received",
+  "description": "I canceled my subscription last week but haven’t received a refund yet."
 }
-result = run_agent(test_ticket)
 ```
-
-The notebook will print the state at each node and display the final response.
-
----
-
-### ✅ In Python Script
-
-Create a `sts.py` file and include your logic.
-
-Run:
-
-```bash
-uv run python sts.py
-```
-
-Ensure `.env` is present in the same directory.
-
----
+Send this JSON input via the LangGraph CLI interface to process the ticket.
 
 ## 🧪 Testing the Agent
 
-### 🔁 Modify Ticket
-
-```python
-test_ticket = {
-    "subject": "Login error",
-    "description": "I keep getting an Error 403 when trying to log in."
-}
-result = run_agent(test_ticket)
-```
-
----
-
-### 📄 Check Escalations
-
-If a response fails after 2 retries, it's logged in `escalation_log.csv` with:
-
-* Subject
-* Description
-* Category
-* Draft
-* Feedback
-
----
-
-### ✅ Sample Test Cases
-
+### Sample Test Cases
 | Category  | Sample Ticket                       |
-| --------- | ----------------------------------- |
+|-----------|-------------------------------------|
 | Billing   | Why was I charged twice this month? |
 | Technical | The app crashes on startup.         |
 | Security  | I think my account was hacked.      |
 | General   | How do I update my profile?         |
 
----
+### Check Escalations
+If a response fails after 2 retries, it is logged in `escalation_log.csv` with details including:
+- Subject
+- Description
+- Category
+- Draft
+- Feedback
 
 ## 🧠 Design & Architecture
-
-### 1. **LangGraph** for Workflow
-
-* **Why**: Explicit state management with retry/escalation support.
-* **Alt**: LangChain `AgentExecutor`.
-
-### 2. **FAISS** for Context Retrieval
-
-* **Why**: Fast local similarity search.
-* **Alt**: Pinecone or Elasticsearch for scale.
-
-### 3. **SentenceTransformers**
-
-* **Model**: `all-MiniLM-L6-v2`
-* **Why**: Lightweight, efficient for short text.
-* **Note**: Consider migrating to `langchain-huggingface`.
-
-### 4. **LLaMA3-8B via Groq**
-
-* **Why**: High-quality NLP with fast inference.
-* **Alt**: Local HF models (tradeoff: performance vs dependency).
-
-### 5. **TypedDict for State**
-
-* Enforces structure and improves maintainability.
-
-### 6. **Retry & Escalate**
-
-* 2 retry limit for draft review.
-* Escalates to `escalation_log.csv`.
-
-### 7. **Mock Knowledge Base**
-
-* Hardcoded for demonstration.
-* Future: Use a real DB or API.
-
-### 8. **Structured JSON Output**
-
-* Improves validation and parsing robustness.
-
-### 9. **Error Handling**
-
-* Fallbacks to `"General"` category or escalates on critical failure.
-
----
+- **LangGraph**: Manages stateful workflows with retry and escalation support.
+- **FAISS**: Enables fast local similarity search for context retrieval.
+- **SentenceTransformers**: Utilizes `all-MiniLM-L6-v2` for lightweight embeddings.
+- **LLaMA3-8B via Groq**: Delivers high-quality NLP with fast inference.
+- **TypedDict**: Ensures structured state management.
+- **Retry & Escalate**: Implements a 2-retry limit with escalation to `escalation_log.csv`.
 
 ## 📦 Dependencies
-
 ```
-langgraph
 langchain
-langchain-community
-langchain-groq
-sentence-transformers
+langchain_community
+langchain_groq
 faiss-cpu
 python-dotenv
-jupyter
-ipython
+ipykernel
+sentence_transformers
+langgraph-cli
+langgraph-cli[inmem]
+langchain-huggingface
+langgraph
 ```
-
----
 
 ## 📈 Potential Improvements
+- Update embedding backend to `langchain-huggingface`.
+- Integrate a live knowledge base with a DB/API.
+- Enhance review with tone, accuracy, and length checks.
+- Add timestamps and metadata to logging.
+- Scale with Pinecone instead of FAISS.
+- Develop a REST API or web frontend.
+- Implement unit/integration testing.
 
-* 🔁 **Update Embedding Backend**: Use `langchain-huggingface`
-* 🧠 **Live Knowledge Base**: Integrate DB/API for dynamic context
-* 🔍 **Advanced Review**: Add tone, accuracy, and length checks
-* 🗃️ **Improved Logging**: Add timestamps and metadata
-* ☁️ **Scalability**: Swap FAISS for Pinecone
-* 🌐 **API/UI**: Build REST API or Web Frontend
-* 🧪 **Tests**: Add unit/integration testing framework
-
----
-
-## 📂 Project Structure 
-
+## 📂 Project Structure
 ```
-📁 sts-project/
+📁 ZIKRA_INFO_TECH
+├── demo_video
+│   ├── Demo_Video_CSTS.mp4
+│   └── Demo_Video_Drive_Link.txt
+├── src
+│   ├── core
+│       ├── llm.py
+│       ├── prompts.py
+│       ├── vector_store.py
+│   ├── StateGraph
+│       ├── init.py
+│       ├── nodes_def.py
+│       ├── nodes.py
+│       └── retry.py
+│       └── ticket_state.py
+|   ├── tests
+│       ├── test_classify.py
+│       └── CSTS.ipynb
+│       └── main.py
 ├── .env
-├── STS.ipynb
-├── sts.py
+├── Assessment Task — Support Ticket Re...
+├── Demo_Video_Drive_Link.txt
 ├── escalation_log.csv
+├── flow_chart.png
+├── langgraph.json
+├── README.md
 ├── requirements.txt
-└── README.md
 ```
-
----
-
