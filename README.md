@@ -67,6 +67,8 @@ python src\main.py
 ### 7. Set Up LangGraph CLI (Optional)
 To run the agent using the LangGraph CLI, follow these additional steps:
 
+https://github.com/user-attachments/assets/b3bd56d1-4140-46e6-8b72-9ee5bba02160
+
 #### a. Configure Local Server
 Refer to the LangGraph local server setup guide:  
 **https://langchain-ai.github.io/langgraph/tutorials/langgraph-platform/local-server/**  
@@ -81,6 +83,9 @@ langgraph dev
 #### c. Invoke the Agent
 Provide a JSON input to invoke the agent. Example input:
 ```json
+
+
+
 {
   "subject": "Refund not received",
   "description": "I canceled my subscription last week but haven’t received a refund yet."
