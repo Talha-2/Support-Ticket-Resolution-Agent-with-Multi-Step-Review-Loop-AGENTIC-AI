@@ -36,6 +36,7 @@ git clone https://github.com/Talha-2/Support-Ticket-Resolution-Agent-with-Multi-
 Use `pip` to install the `uv` package manager, a fast alternative for managing Python dependencies:
 ```bash
 pip install uv
+uv init
 ```
 
 ### 3. Create a Virtual Environment
@@ -169,3 +170,4 @@ langgraph
 ├── README.md
 ├── requirements.txt
 ```
+
